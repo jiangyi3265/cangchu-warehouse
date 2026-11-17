@@ -1,0 +1,23 @@
+[
+  {
+    "name": "cangchu-warehouse",
+    "path": ".",
+    "description": "Project overview and acceptance documentation",
+    "url": "https://github.com/jiangyi3265/cangchu-warehouse",
+    "branch": "main"
+  },
+  {
+    "name": "cangchu-backend",
+    "path": "../cangchu-backend",
+    "description": "Java Spring Boot API and warehouse business services",
+    "url": "https://github.com/jiangyi3265/cangchu-backend",
+    "branch": "main"
+  },
+  {
+    "name": "cangchu-admin",
+    "path": "../cangchu-admin",
+    "description": "Vue 3 warehouse administration interface",
+    "url": "https://github.com/jiangyi3265/cangchu-admin",
+    "branch": "main"
+  }
+]
