@@ -1,0 +1,13 @@
+{
+  "release": "20261117T012436Z",
+  "deployedAt": "2026-11-16T20:37:06-05:00",
+  "timezone": "America/New_York",
+  "applicationRepositories": {
+    "cangchu-backend": "06de9ba3b42fc35a7d4f35aef7826e576d89860e",
+    "cangchu-admin": "9c305985c275b83f011717117f87e127052411a6"
+  },
+  "jarSha256": "205c2ba1fd04a8041b1898de67272aeef96e6696be07fb15d4a8710286453bb1",
+  "databaseMigrations": "warehouse_001 through warehouse_039, plus RuoYi and Quartz",
+  "businessDataAtDeployment": "Empty, explicitly requested by the owner",
+  "externalCarrierRequestsEnabled": false
+}

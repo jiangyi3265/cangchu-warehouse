@@ -1,14 +1,18 @@
 # cangchu-warehouse · 海外仓储项目总览
 
+**接手项目先读：[开发与部署交接文件](docs/HANDOFF.md)**。这个入口包含三个代码仓库、换电脑启动步骤、线上部署位置、备份回退方法和剩余工作。可以直接把该文件的 GitHub 链接交给下一位开发者。
+
+线上站点：[cangchu.oksja.cn](https://cangchu.oksja.cn)。2026-11-16 20:37（America/New_York）已切换到若依 Vue 3 + Java，按用户要求使用空白业务库，旧 Node 版本及数据保留备份。密码、密钥、数据库备份通过私密渠道交接，不在这个公开仓库中。
+
 海外仓储系统的项目说明、迁移记录和替换验收文档，关联独立的 Java 后端与 Vue 3 管理后台。
 
 ## 项目简介
 
 项目基于若依建设入库、库存、订单履约、退货和财务计费能力，目标是逐步接替当前 Mintsoft 业务。本仓库负责项目总览和验收依据，源代码分别由 `cangchu-backend` 和 `cangchu-admin` 管理；当前没有独立 App 或小程序项目。
 
-已实现七类主数据、ASN 分批收货及隔离处理、库存来源与盘点、订单逐件扫码与多箱装箱、隔离退货、收费预览与账单调整。WooCommerce 读取与仓库接单、DPD 英国建单与原始面单已有本地验证。真实账号联调、实物交运、平台回传、其他平台/快递、历史数据迁移及正式切换仍需继续验收。
+已实现七类主数据、ASN 分批收货及隔离处理、库存来源与盘点、订单逐件扫码与多箱装箱、隔离退货、收费预览与账单调整。WooCommerce 读取与仓库接单、DPD 英国建单与原始面单已有本地验证。本站若依版本已经上线；真实账号联调、实物交运、平台回传、其他平台/快递、客户历史数据迁移及 Mintsoft 业务正式接替仍需继续验收。
 
-完整边界见 [替换验收表](docs/REPLACEMENT_ACCEPTANCE.md)，模块证据与操作记录见 [迁移记录](docs/RUOYI_MIGRATION.md)。本仓库整理不更改线上系统或业务数据。
+完整边界见 [替换验收表](docs/REPLACEMENT_ACCEPTANCE.md)，模块证据与操作记录见 [迁移记录](docs/RUOYI_MIGRATION.md)，线上运行资料见 [部署与运维](docs/DEPLOYMENT.md)。本次交接文档提交没有再次修改线上服务或数据。
 
 ## 技术栈
 
@@ -67,8 +71,12 @@ README.md                      项目入口与关联仓库
 repositories.json              仓库名称、目录和默认分支索引
 DESIGN.md                      既有若依界面规范
 docs/
+  HANDOFF.md                   接手入口、开发步骤与私密资料清单
+  DEPLOYMENT.md                当前线上部署、备份与回退说明
+  deployed-release.json        已发布代码提交与构建标识
   REPLACEMENT_ACCEPTANCE.md     完整替换范围与验收门槛
   RUOYI_MIGRATION.md            模块进度、验证证据及操作记录
+ops/                           不含凭据的运维脚本、systemd 与 Nginx 配置
 ../cangchu-backend/             并列的独立 Java 源码仓库
 ../cangchu-admin/               并列的独立 Vue 源码仓库
 ```

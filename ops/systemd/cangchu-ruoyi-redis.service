@@ -1,0 +1,20 @@
+[Unit]
+Description=Cangchu RuoYi isolated Redis
+After=network.target
+[Service]
+Type=simple
+User=cangchu
+Group=cangchu
+ExecStart=/opt/cangchu-ruoyi/bin/redis-server /etc/cangchu-ruoyi/redis.conf
+Restart=on-failure
+RestartSec=5
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/cangchu-ruoyi/shared/redis
+MemoryMax=96M
+CPUQuota=25%
+[Install]
+WantedBy=multi-user.target

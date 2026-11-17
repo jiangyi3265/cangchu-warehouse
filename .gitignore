@@ -66,6 +66,12 @@ settings-security.xml
 *.tgz
 *.7z
 *.rar
+*私密*
+mysql-root.cnf
+mysql-app.cnf
+access.txt
+app.env
+redis.conf
 *~
 
 # IDE and operating-system files

@@ -1,0 +1,24 @@
+[Unit]
+Description=Cangchu RuoYi Java Warehouse
+After=network.target cangchu-ruoyi-mysql.service cangchu-ruoyi-redis.service
+Requires=cangchu-ruoyi-mysql.service cangchu-ruoyi-redis.service
+[Service]
+Type=simple
+User=cangchu
+Group=cangchu
+WorkingDirectory=/opt/cangchu-ruoyi/current
+EnvironmentFile=/etc/cangchu-ruoyi/app.env
+ExecStart=/www/server/java/jdk-17.0.8/bin/java -Xms96m -Xmx320m -Xss512k -XX:+UseSerialGC -XX:MaxMetaspaceSize=192m -XX:CompressedClassSpaceSize=32m -XX:ReservedCodeCacheSize=64m -XX:MaxDirectMemorySize=32m -XX:+ExitOnOutOfMemoryError -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Duser.timezone=UTC -jar /opt/cangchu-ruoyi/current/backend.jar --server.tomcat.threads.max=40 --server.tomcat.threads.min-spare=5 --spring.datasource.druid.initial-size=2 --spring.datasource.druid.min-idle=2 --spring.datasource.druid.max-active=10
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=60
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/cangchu-ruoyi/shared/logs /opt/cangchu-ruoyi/shared/uploads
+MemoryMax=768M
+CPUQuota=100%
+[Install]
+WantedBy=multi-user.target

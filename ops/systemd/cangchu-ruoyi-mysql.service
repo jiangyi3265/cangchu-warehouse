@@ -1,0 +1,22 @@
+[Unit]
+Description=Cangchu RuoYi isolated MySQL
+After=network.target
+[Service]
+Type=simple
+User=cangchu
+Group=cangchu
+ExecStart=/www/server/mysql/bin/mysqld --defaults-file=/etc/cangchu-ruoyi/mysql.cnf
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=180
+TimeoutStopSec=120
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/cangchu-ruoyi/shared/mysql
+MemoryMax=512M
+CPUQuota=75%
+[Install]
+WantedBy=multi-user.target

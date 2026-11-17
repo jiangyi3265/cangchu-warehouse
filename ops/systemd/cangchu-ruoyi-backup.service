@@ -1,0 +1,10 @@
+[Unit]
+Description=Cangchu RuoYi backup
+After=cangchu-ruoyi.service
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/cangchu-ruoyi/bin/backup.py
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+TimeoutStartSec=180
